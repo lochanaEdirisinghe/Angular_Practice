@@ -1,1 +1,55 @@
-<p>customer-two works!</p>
+<header class="container-fluid ">
+  <div class="row align-items-center" style="height: 50px">
+    <div class="col-12 shadow-sm bg-danger align-items-center">
+      <h1 class="p-1 text-white"> Customer Details 2</h1>
+    </div>
+  </div>
+</header>
+<br>
+<br>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 p-3">
+        <form>
+        <div class="form-group">
+          <label for="id">Id</label>
+          <input type="text" class="form-control" id="id" placeholder="Id" [(ngModel)]="customer.id">
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="name" [(ngModel)]="customer.name">
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" placeholder="name" [(ngModel)]="customer.address">
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" type="button" (click)="saveCus()">Add</button>
+          <button class="btn btn-success" type="button" (click)="update()" >Update</button>
+        </div>
+        </form>
+      </div>
+      <div class="col-6">
+        <table class="table table-dark">
+          <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of customers" (click)="selectCus(c)" (dblclick)="deleteRow(c)" >
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.address}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</main>
+
