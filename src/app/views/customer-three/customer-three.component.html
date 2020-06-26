@@ -1,1 +1,69 @@
-<p>customer-three works!</p>
+<header class="container-fluid ">
+  <div class="row align-items-center" style="height: 50px">
+    <div class="col-12 shadow-sm bg-danger align-items-center">
+      <h1 class="p-1 text-white"> Template Driven Form</h1>
+    </div>
+  </div>
+</header>
+<br>
+<br>
+<main>
+  <section class="container">
+    <div class="row">
+      <div class="col-6 p-3">
+
+        <form ngForm #f="ngForm" (ngSubmit)="submitCustomer(f)">
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input #cusId='ngModel' #rfCusId ngModel type="text" class="form-control" name="id" id="id" placeholder="Id" required minlength="4">
+            <div class="alert bg-danger text-white" *ngIf="!cusId.valid && cusId.touched">
+              <div *ngIf="cusId.errors.required">required to fill</div>
+              <div *ngIf="cusId.errors.minlength">minimum length is 4</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input #cusName="ngModel" ngModel type="text" class="form-control" name="name" id="name" placeholder="name" required minlength="4">
+            <div class="alert bg-danger text-white" *ngIf="!cusName.valid && cusName.touched">
+              <div *ngIf="cusName.errors.required">required to fill</div>
+              <div *ngIf="cusName.errors.minlength">minimum length is 4</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input #cusAddr="ngModel" ngModel type="text" class="form-control" name="address" id="address" placeholder="name" required minlength="4">
+            <div class="alert bg-danger text-white" *ngIf="!cusAddr.valid && cusAddr.touched">
+              <div *ngIf="cusAddr.errors.required">required to fill</div>
+              <div *ngIf="cusAddr.errors.minlength">minimum length is 4</div>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+            <button class="btn btn-success" type="button" >Update</button>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-6">
+        <table class="table table-dark">
+          <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of customers" (click)="selectRow(c)" >
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.address}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+</main>
+
