@@ -9,7 +9,7 @@ import { CustomerThreeComponent } from './views/customer-three/customer-three.co
 import { CustomerFourComponent } from './views/customer-four/customer-four.component';
 import { CustomerFiveComponent } from './views/customer-five/customer-five.component';
 import { CustomerSixComponent } from './views/customer-six/customer-six.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
