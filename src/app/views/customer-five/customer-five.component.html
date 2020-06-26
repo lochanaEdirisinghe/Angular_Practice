@@ -1,1 +1,83 @@
-<p>customer-five works!</p>
+<header class="container-fluid ">
+  <div class="row align-items-center" style="height: 50px">
+    <div class="col-12 shadow-sm bg-danger align-items-center">
+      <h1 class="p-1 text-white"> Http Request Handling</h1>
+    </div>
+  </div>
+</header>
+<br>
+<br>
+<main>
+  <section class="container">
+    <div class="row">
+      <div class="col-6 p-3">
+
+        <form (ngSubmit)="submitCustomer()" [formGroup]="form">
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input type="text" formControlName="id" class="form-control" name="id" id="id" placeholder="Id" >
+            <div class="alert bg-danger text-white" *ngIf="!cusId.valid && cusId.touched">
+              <div *ngIf="cusId.errors.required">required to fill</div>
+              <div *ngIf="cusId.errors.minlength">minimum length is 4</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="userid">userId</label>
+            <input type="text" formControlName="userId" class="form-control" name="userid" id="userid" placeholder="Id" >
+            <div class="alert bg-danger text-white" *ngIf="!userId.valid && userId.touched">
+              <div *ngIf="userId.errors.required">required to fill</div>
+              <div *ngIf="userId.errors.minlength">minimum length is 4</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" formControlName="title" class="form-control" name="title" id="title" placeholder="name" >
+            <div class="alert bg-danger text-white" *ngIf="!cusTitle.valid && cusTitle.touched">
+              <div *ngIf="cusTitle.errors.required">required to fill</div>
+              <div *ngIf="cusTitle.errors.minlength">minimum length is 4</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="body">Body</label>
+            <input  type="text" formControlName="body" class="form-control" name="body" id="body" placeholder="name">
+            <div class="alert bg-danger text-white" *ngIf="!cusBody.valid && cusBody.touched">
+              <div *ngIf="cusBody.errors.required">required to fill</div>
+              <div *ngIf="cusBody.errors.minlength">minimum length is 4</div>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+            <button class="btn btn-success" (click)="getAll()">Load All</button>
+            <button class="btn btn-dark" >Update</button>
+          </div>
+        </form>
+        <br>
+        {{abc}}
+
+      </div>
+      <div class="col-6">
+        <table class="table table-dark">
+          <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">userId</th>
+            <th scope="col">title</th>
+            <th scope="col">body</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of posts" (click)="selectRow(c)">
+            <td>{{c.id}}</td>
+            <td>{{c.userId}}</td>
+            <td>{{c.title}}</td>
+            <td>{{c.body}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </section>
+</main>
+

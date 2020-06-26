@@ -10,6 +10,7 @@ import { CustomerFourComponent } from './views/customer-four/customer-four.compo
 import { CustomerFiveComponent } from './views/customer-five/customer-five.component';
 import { CustomerSixComponent } from './views/customer-six/customer-six.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
